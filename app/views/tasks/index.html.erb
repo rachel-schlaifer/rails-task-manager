@@ -1,6 +1,18 @@
 <h1>To Do</h1>
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.title %></li>
+    <% if task.completed %>
+      <li><i class="fa-solid fa-square-check"></i> <%= link_to task.title, task_path(task) %> <%= link_to task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "text-danger" do %>
+          <i class="fa-solid fa-trash"></i>
+          <% end %></li>
+    <% else %>
+      <li><i class="fa-regular fa-square"></i> <%=link_to task.title, task_path(task) %>         <%= link_to task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+          class: "text-danger" do %>
+          <i class="fa-solid fa-trash"></i>
+          <% end %></li>
+    <% end %>
   <% end %>
 </ul>
+
+<%= link_to "Add new Task", new_task_path %>

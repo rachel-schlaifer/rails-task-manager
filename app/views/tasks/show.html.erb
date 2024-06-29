@@ -1,4 +1,6 @@
-<h1><%=@task.title%></h1>
-<p><%=@task.details%></p>
-<p> <%= link_to "Edit task", edit_task_path %></p>
-<p> <%= link_to "Back to list", "/tasks" %></p>
+<div class="container">
+  <h1><%=@task.title%></h1>
+  <p><%=@task.details%></p>
+  <p class="btn btn-primary"> <%= link_to "Edit task", edit_task_path, class: "text-white" %></p>
+  <p class="btn btn-primary"> <%= link_to "Back to list", tasks_path, class: "text-white" %></p>
+</div>

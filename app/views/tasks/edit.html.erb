@@ -1,9 +1,15 @@
-<h1>Edit This task</h1>
+<div class="container">
+  <h1>Edit This task</h1>
 
-<%= form_with model: @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control" %>
-  <%= f.label :details %>
-  <%= f.text_field :details, class: "form-control" %>
-  <%= f.submit "Update Task", class: "btn btn-primary mt-2" %>
-<% end %>
+    <% @task.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger" role="alert"><%= message %></div>
+    <% end %>
+
+  <%= form_with model: @task do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+    <%= f.label :details %>
+    <%= f.text_field :details, class: "form-control" %>
+    <%= f.submit "Update Task", class: "btn btn-primary mt-2" %>
+  <% end %>
+</div>
